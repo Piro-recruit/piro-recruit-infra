@@ -84,7 +84,7 @@ upstream app_backend {
     server 127.0.0.1:${STANDBY_PORT};
 }
 
-server {
+server { 
     listen 80;
     server_name _;
 

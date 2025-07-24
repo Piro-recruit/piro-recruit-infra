@@ -6,7 +6,7 @@ resource "google_compute_network" "main" {
   routing_mode           = "REGIONAL"
 }
 
-# 서브넷 생성
+# 서브넷 생성 
 resource "google_compute_subnetwork" "main" {
   name          = "${var.app_name}-subnet"
   ip_cidr_range = var.vpc_cidr

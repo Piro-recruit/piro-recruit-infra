@@ -25,7 +25,7 @@ sudo apt-get install -y jenkins
 
 # Jenkins 사용자를 docker 그룹에 추가
 sudo usermod -aG docker jenkins
-
+ 
 # Git 설치
 sudo apt-get install -y git
 

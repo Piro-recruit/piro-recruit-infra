@@ -1,5 +1,5 @@
 # terraform/database.tf
-# Cloud SQL PostgreSQL 인스턴스
+# Cloud SQL PostgreSQL 인스턴스 (단순 설정)
 resource "google_sql_database_instance" "main" {
   name             = "${var.app_name}-postgres-instance"
   database_version = "POSTGRES_15"
@@ -23,19 +23,14 @@ resource "google_sql_database_instance" "main" {
     }
 
     ip_configuration {
-      ipv4_enabled    = true
-      private_network = google_compute_network.main.id
-      
-      authorized_networks {
-        name  = "app-server"
-        value = google_compute_instance.app_server.network_interface[0].access_config[0].nat_ip
-      }
+      ipv4_enabled = true
+      # 학생 프로젝트용 간단 설정 - 모든 IP 허용
     }
 
     database_flags {
       name  = "log_checkpoints"
       value = "on"
-    }
+    } 
     
     database_flags {
       name  = "log_connections"
@@ -43,7 +38,7 @@ resource "google_sql_database_instance" "main" {
     }
   }
 
-  deletion_protection = false  # 개발 환경에서는 false
+  deletion_protection = false
 }
 
 # PostgreSQL 데이터베이스 생성

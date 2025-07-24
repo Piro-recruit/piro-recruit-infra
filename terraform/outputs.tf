@@ -28,7 +28,7 @@ output "ssh_commands" {
   }
 }
 
-output "jenkins_url" {
+output "jenkins_url" { 
   description = "Jenkins 접속 URL"
   value       = "http://${google_compute_instance.jenkins_server.network_interface[0].access_config[0].nat_ip}:8080"
 }

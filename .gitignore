@@ -1,0 +1,10 @@
+# Terraform files
+*.tfvars
+!*.tfvars.example
+terraform.tfstate*
+.terraform/
+.terraform.lock.hcl
+
+# OS files
+.DS_Store
+Thumbs.db

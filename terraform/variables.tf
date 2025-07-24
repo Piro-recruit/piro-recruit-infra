@@ -62,7 +62,7 @@ variable "disk_type" {
 # 네트워크 관련 변수
 variable "vpc_cidr" {
   description = "VPC CIDR range"
-  type        = string
+  type        = string 
   default     = "10.0.0.0/24"
 }
 

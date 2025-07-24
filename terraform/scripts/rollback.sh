@@ -57,7 +57,7 @@ upstream app_backend {
 }
 
 server {
-    listen 80;
+    listen 80; 
     server_name _;
 
     location /health {
