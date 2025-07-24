@@ -1,0 +1,46 @@
+# terraform/terraform.tfvars.example
+# GCP 프로젝트 설정
+project_id = "your-gcp-project-id"
+region     = "asia-northeast3"  # 서울 리전
+zone       = "asia-northeast3-a"
+
+# 애플리케이션 설정
+app_name    = "piro-recruiting"
+environment = "prod"
+
+# 서버 스펙 설정
+app_server_machine_type     = "e2-medium"
+jenkins_server_machine_type = "e2-micro"
+app_server_disk_size        = 30
+jenkins_server_disk_size    = 20
+disk_type                   = "pd-standard"
+
+# 네트워크 설정
+vpc_cidr      = "10.0.0.0/24"
+services_cidr = "10.1.0.0/24"
+
+# 보안 설정 - 실제 사용시 개발자 IP로 제한 필요
+allowed_ssh_ips     = ["0.0.0.0/0"]     # 예: ["123.456.789.0/32"]
+allowed_jenkins_ips = ["0.0.0.0/0"]     # 예: ["123.456.789.0/32"]
+
+# SSH 키 설정
+ssh_public_key_path = "~/.ssh/id_rsa.pub"  # 실제 SSH 공개키 경로
+ssh_username        = "ubuntu"
+
+# 데이터베이스 설정
+db_tier              = "db-f1-micro"
+db_disk_size         = 10
+db_disk_type         = "PD_SSD"
+db_backup_start_time = "03:00"
+db_retained_backups  = 7
+db_name              = "piro_recruiting_db"
+db_username          = "app_user"
+db_password          = "your_secure_password_here_123!"  # 반드시 변경 필요
+
+# 공통 태그
+common_tags = {
+  Environment = "prod"
+  Project     = "piro-recruiting"
+  ManagedBy   = "terraform"
+  Team        = "piro-team"
+}
