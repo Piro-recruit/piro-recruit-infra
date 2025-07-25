@@ -42,7 +42,7 @@ resource "google_compute_instance" "jenkins_server" {
   name         = "${var.app_name}-jenkins-server"
   machine_type = var.jenkins_server_machine_type
   zone         = var.zone
-
+  allow_stopping_for_update = true
   tags = ["jenkins-server", "ssh-access"]
 
   boot_disk {
